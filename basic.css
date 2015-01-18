@@ -1,0 +1,80 @@
+div.mainDiv
+{
+    color: red;
+}
+
+div#heading
+{
+	margin-top: 5%;
+	text-align: center;
+    color: red;
+}
+
+div#mainBox
+{
+	text-align: left;
+	margin-left: 30%;
+	margin-right: 30%;
+	margin-top: 30px;
+    color: red;
+}
+
+div.sidebar
+{
+	text-align: left;
+    color: red;
+    float: left;
+}
+
+div.mainBlock
+{
+	text-align: left;
+    color: red;
+    margin-top:px;
+}
+
+a.sidebarLink
+{
+	text-align: center;
+    color: red;
+}
+
+div.sidebar ul
+{
+   list-style-type: none;
+   padding-right:10px;
+   margin-left:0px;
+   margin-right:40px;
+   margin-top:0px;
+}
+
+div.sidebar li
+{
+   width: 150px;
+   line-height:20px;
+   padding-right: 10px;
+   text-align: left;
+   font-size:16;
+}
+
+.sidebar li:hover
+{
+   background-color: #dddddd;
+}
+
+.sidebar li.active, .sidebar li.active a
+{
+   color: #ffffff;
+   background-color: #0088cc;
+}
+
+.sidebar a
+{
+   display: block;
+}
+
+img
+{
+	width: 100px;
+	padding-left:80px;
+}
