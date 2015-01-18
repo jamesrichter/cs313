@@ -7,7 +7,7 @@ div#heading
 {
 	margin-top: 5%;
 	text-align: center;
-    color: red;
+    color: #567890;
 }
 
 div#mainBox
@@ -16,27 +16,27 @@ div#mainBox
 	margin-left: 30%;
 	margin-right: 30%;
 	margin-top: 30px;
-    color: red;
+    color: #345667;
 }
 
 div.sidebar
 {
 	text-align: left;
-    color: red;
+    color: #123456;
     float: left;
 }
 
 div.mainBlock
 {
 	text-align: left;
-    color: red;
+    color: #987654;
     margin-top:px;
 }
 
 a.sidebarLink
 {
 	text-align: center;
-    color: red;
+    color: #456789;
 }
 
 div.sidebar ul
@@ -59,13 +59,13 @@ div.sidebar li
 
 .sidebar li:hover
 {
-   background-color: #dddddd;
+   background-color: #7890ab;
 }
 
 .sidebar li.active, .sidebar li.active a
 {
-   color: #ffffff;
-   background-color: #0088cc;
+   color: #fedcba;
+   background-color: #123456;
 }
 
 .sidebar a
