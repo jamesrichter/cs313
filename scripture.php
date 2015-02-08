@@ -11,7 +11,7 @@ echo ":)";
 function testConnection() {
 	$dbHost = "127.4.215.130";
     $dbPort = "3306";
-	$dbUser = "adminYwPVfAG"@"127.4.215.130";
+	$dbUser = "adminYwPVfAG";
 	$dbPassword = "pCTEtPQQJZI8";
 	$dbName = "picSite";
 	echo ":)";
@@ -37,7 +37,7 @@ function loadDatabase()
 
 	$dbHost = "127.4.215.130";
     $dbPort = "3306";
-	$dbUser = "adminYwPVfAG"@"127.4.215.130";
+	$dbUser = "adminYwPVfAG";
 	$dbPassword = "pCTEtPQQJZI8";
 	$dbName = "picSite";
 	echo ":)";
