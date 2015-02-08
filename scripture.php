@@ -1,4 +1,11 @@
+<!DOCTYPE html>
+<html>
+<title>David A. Jones's compositions</title>
+<body>
+hii
 <?php 
+
+echo ":)";
 
 // connects to the test database
 function testConnection() {
@@ -103,3 +110,5 @@ foreach ($test as $key => $value) {
 
 
 ?>
+</body>
+</html>
