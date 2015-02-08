@@ -7,7 +7,7 @@ function testConnection() {
 	$dbUser = "adminYwPVfAG"@"127.4.215.130";
 	$dbPassword = "pCTEtPQQJZI8";
 	$dbName = "picSite";
-	
+	echo ":)";
 	$dsn = "mysql:host=$server;dbname=$database";
 	try {
 		$connTest = new PDO($dsn, $username, $password);
@@ -33,7 +33,7 @@ function loadDatabase()
 	$dbUser = "adminYwPVfAG"@"127.4.215.130";
 	$dbPassword = "pCTEtPQQJZI8";
 	$dbName = "picSite";
-
+	echo ":)";
      // $openShiftVar = getenv('OPENSHIFT_MYSQL_DB_HOST');
 
      // if ($openShiftVar === null || $openShiftVar == "")
@@ -74,9 +74,9 @@ function loadDatabase()
 // This will retrieve scriptures from the database
 function getPicSite($id) {
 	$conn = loadDatabase();
-
+	echo ":)3";
 	try {
-		$sql = "SELECT * FROM picture";  
+		$sql = 'SELECT * FROM picture';  
 		$stmt = $conn->prepare($sql);
 		$stmt->execute();
 		$data = $stmt->fetchAll();
@@ -92,7 +92,9 @@ function getPicSite($id) {
 	}
 }
 
+echo ":)1";
 $test = getScriptures(1);
+echo $test;
 echo "<h1>Team Faith</h1>";
 foreach ($test as $key => $value) {
 	echo "<strong> " . $value['title'] . " " . $value['image'] . ":" . $value['pictureID'] . "</strong>" . "-" . $value['userID'] . "<br /><br />";
