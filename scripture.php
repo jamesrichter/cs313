@@ -7,19 +7,19 @@
 
 echo ":)";
 
-define('DB_HOST', getenv('127.4.215.130'));
+define('DB_HOST', getenv('http://php-jamesrichter.rhcloud.com'));
 define('DB_PORT', getenv('3306'));
 define('DB_USER', getenv('adminYwPVfAG'));
 define('DB_PASS', getenv('pCTEtPQQJZI8'));
-define('DB_NAME', getenv('php'));
+define('DB_NAME', getenv('picSite'));
 
 // connects to the test database
 function testConnection() {
-	$dbHost = constant("DB_HOST");;
-    $dbPort = constant("DB_PORT");;
-	$dbUser = constant("DB_USER");;
-	$dbPassword = constant("DB_PASS");;
-	$dbName = constant("DB_NAME");;
+	$dbHost = constant("DB_HOST");
+    $dbPort = constant("DB_PORT");
+	$dbUser = constant("DB_USER");
+	$dbPassword = constant("DB_PASS");
+	$dbName = constant("DB_NAME");
 	echo ":)";
 	$dsn = "mysql:host=$server;dbname=$database";
 	try {
