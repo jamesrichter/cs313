@@ -2,7 +2,8 @@
 <html>
 <title>David A. Jones's compositions</title>
 <body>
-hii
+	hii
+<!--
 <?php 
 
 echo ":)";
@@ -59,7 +60,7 @@ function loadDatabase()
      //      $dbUser = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
      //      $dbPassword = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
      // } 
-     //echo "host:$dbHost:$dbPort dbName:$dbName user:$dbUser password:$dbPassword<br >\n";
+     //echo "host:$dbHost:$dbPort dbName:$dbName user:$dbUser password:$dbPassword<br>\n";
   //echo "host:$dbHost:$dbPort <br>dbName:$dbName <br>user:$dbUser <br>password:$dbPassword<br />\n";
 
   // $db = new PDO("mysql:host=$dbHost:$dbPort;dbname=$dbName", $dbUser, $dbPassword);
@@ -109,6 +110,6 @@ foreach ($test as $key => $value) {
 
 
 
-?>
+?>-->
 </body>
 </html>
