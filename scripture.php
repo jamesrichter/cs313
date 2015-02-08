@@ -7,18 +7,25 @@
 
 echo ":)";
 
+define('DB_HOST', getenv('127.4.215.130'));
+define('DB_PORT', getenv('3306'));
+define('DB_USER', getenv('adminYwPVfAG'));
+define('DB_PASS', getenv('pCTEtPQQJZI8'));
+define('DB_NAME', getenv('php'));
+
 // connects to the test database
 function testConnection() {
-	$dbHost = "127.4.215.130";
-    $dbPort = "3306";
-	$dbUser = "adminYwPVfAG";
-	$dbPassword = "pCTEtPQQJZI8";
-	$dbName = "picSite";
+	$dbHost = constant("DB_HOST");;
+    $dbPort = constant("DB_PORT");;
+	$dbUser = constant("DB_USER");;
+	$dbPassword = constant("DB_PASS");;
+	$dbName = constant("DB_NAME");;
 	echo ":)";
 	$dsn = "mysql:host=$server;dbname=$database";
 	try {
 		$connTest = new PDO($dsn, $username, $password);
-	} catch (PDOException $exc) {
+		echo "It worked!"
+;	} catch (PDOException $exc) {
 		echo "Sorry the connection could not be established";
 	}
 
