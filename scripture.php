@@ -4,7 +4,7 @@
 function testConnection() {
 	$dbHost = "127.4.215.130";
     $dbPort = "3306";
-	$dbUser = "adminYwPVfAG";
+	$dbUser = "adminYwPVfAG"@"127.4.215.130";
 	$dbPassword = "pCTEtPQQJZI8";
 	$dbName = "picSite";
 	
