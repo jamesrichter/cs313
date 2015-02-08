@@ -89,7 +89,7 @@ function getPicSite($id) {
 }
 
 echo ":)1";
-$test = getScriptures(1);
+$test = getPicSite(1);
 echo $test;
 echo "<h1>Team Faith</h1>";
 foreach ($test as $key => $value) {
