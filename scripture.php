@@ -3,7 +3,6 @@
 <title>David A. Jones's compositions</title>
 <body>
 	hii
-<!--
 <?php 
 
 echo ":)";
@@ -109,7 +108,6 @@ foreach ($test as $key => $value) {
 }
 
 
-
-?>-->
+?>
 </body>
 </html>
