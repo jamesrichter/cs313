@@ -33,7 +33,7 @@ function loadDatabase()
 	$dbUser = "adminYwPVfAG"@"127.4.215.130";
 	$dbPassword = "pCTEtPQQJZI8";
 	$dbName = "picSite";
-	
+
      // $openShiftVar = getenv('OPENSHIFT_MYSQL_DB_HOST');
 
      // if ($openShiftVar === null || $openShiftVar == "")
@@ -76,7 +76,7 @@ function getPicSite($id) {
 	$conn = loadDatabase();
 
 	try {
-		$sql = "SELECT * FROM picSite";  
+		$sql = "SELECT * FROM picture";  
 		$stmt = $conn->prepare($sql);
 		$stmt->execute();
 		$data = $stmt->fetchAll();
@@ -95,7 +95,7 @@ function getPicSite($id) {
 $test = getScriptures(1);
 echo "<h1>Team Faith</h1>";
 foreach ($test as $key => $value) {
-	echo "<strong> " . $value['username'] . " " . $value['text'] . ":" . $value['verse'] . "</strong>" . "-" . $value['content'] . "<br /><br />";
+	echo "<strong> " . $value['title'] . " " . $value['image'] . ":" . $value['pictureID'] . "</strong>" . "-" . $value['userID'] . "<br /><br />";
 }
 
 
