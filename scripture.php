@@ -5,38 +5,6 @@
 	hii
 <?php 
 
-echo ":)";
-
-define('DB_HOST', getenv('http://php-jamesrichter.rhcloud.com'));
-define('DB_PORT', getenv('3306'));
-define('DB_USER', getenv('adminYwPVfAG'));
-define('DB_PASS', getenv('pCTEtPQQJZI8'));
-define('DB_NAME', getenv('picSite'));
-
-// connects to the test database
-function testConnection() {
-	$dbHost = constant("DB_HOST");
-    $dbPort = constant("DB_PORT");
-	$dbUser = constant("DB_USER");
-	$dbPassword = constant("DB_PASS");
-	$dbName = constant("DB_NAME");
-	echo ":)";
-	$dsn = "mysql:host=$server;dbname=$database";
-	try {
-		$connTest = new PDO($dsn, $username, $password);
-		echo "It worked!"
-;	} catch (PDOException $exc) {
-		echo "Sorry the connection could not be established";
-	}
-
-	if (is_object($connTest)) {
-		return $connTest;
-	} else {
-		echo 'It failed';
-	}
-}
-
-$test = testConnection();
 
 
 function loadDatabase()
@@ -91,7 +59,7 @@ function getPicSite($id) {
 echo ":)1";
 $test = getPicSite(1);
 echo $test;
-echo "<h1>Team Faith</h1>";
+echo "<h1>Recent Pictures</h1>";
 foreach ($test as $key => $value) {
 	echo "<strong> " . $value['title'] . " " . $value['image'] . ":" . $value['pictureID'] . "</strong>" . "-" . $value['userID'] . "<br /><br />";
 }
