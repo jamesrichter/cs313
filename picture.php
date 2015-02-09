@@ -57,11 +57,11 @@ $test = getPicSite(1);
 echo "<h1>Recent Pictures</h1>";
 foreach ($test as $key => $value) {
 	echo " " . $value['title'] . "
-	 <img src=\"" . $value['image'] . "\" height=\"400\"
-	 width=\"400\">
+	 <img src=\"" . $value['image'] . "\" height=\"200\"
+	 width=\"200\">
 	  " . $value['pictureID']
-	. " " . " " . $value['userID'] .
-	"<br /><br />";
+	. " " . $value['userID'] .
+	" ";
 
 }
 
