@@ -116,18 +116,13 @@ foreach ($test as $key => $value) {
 	} catch (PDOException $ex) {
 		echo 'PDO error in model.';
 	}
-
-	  echo "<ul>\n"; 
-	  echo "<li>" . "<a  href=\"search.php?id=$ID\">"   . $name .  "</a></li>\n"; 
-	  echo "</ul>"; 
-	  } 
-	  } 
+}
 	  else{ 
 	  echo  "<p>Please enter a search query</p>"; 
 	  } 
 	  } 
 	  } 
-	?> 
+?> 
 
 	<form  method="post" action="search.php?go"  id="searchform"> 
       <input  type="text" name="name"> 
