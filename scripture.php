@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html>
-<title>David A. Jones's compositions</title>
+<title>Pictures</title>
 <body>
-	hii
 <?php 
-
-
 
 function loadDatabase()
 {
@@ -38,7 +35,7 @@ function loadDatabase()
 // This will retrieve scriptures from the database
 function getPicSite($id) {
 	$conn = loadDatabase();
-	echo ":)3";
+
 	try {
 		$sql = 'SELECT * FROM picture';  
 		$stmt = $conn->prepare($sql);
@@ -56,7 +53,6 @@ function getPicSite($id) {
 	}
 }
 
-echo ":)1";
 $test = getPicSite(1);
 echo $test;
 echo "<h1>Recent Pictures</h1>";
