@@ -69,31 +69,31 @@ foreach ($test as $key => $value) {
 ?>
 
 <?php 
-	  if(isset($_POST['submit'])){ 
-	  if(isset($_GET['go'])){ 
-	  if(preg_match("/^[  a-zA-Z]+/", $_POST['name'])){ 
-	  $name=$_POST['name']; 
-	  //connect  to the database 
-	  $conn = loadDatabase(); 
-	  //-query  the database table 
-	  try {
-		$sql="SELECT * FROM picture WHERE title LIKE '%" . $name .  "%'"; 
-		$stmt = $conn->prepare($sql);
-		$stmt->execute();
-		$data = $stmt->fetchAll();
-		$stmt->closeCursor();
-	} catch (PDOException $ex) {
-		echo 'PDO error in model.';
-	}
-}
-	  else{ 
-	  echo  "<p>Please enter a search query</p>"; 
-	  } 
-	  } 
-	  } 
+if(isset($_POST['submit'])){ 
+	if(isset($_GET['go'])){ 
+		if(preg_match("/^[  a-zA-Z]+/", $_POST['name'])){ 
+			$name=$_POST['name']; 
+	  		//connect  to the database 
+			$conn = loadDatabase(); 
+	  		//-query  the database table 
+			try {
+				$sql="SELECT * FROM picture WHERE title LIKE '%" . $name .  "%'"; 
+				$stmt = $conn->prepare($sql);
+				$stmt->execute();
+				$data = $stmt->fetchAll();
+				$stmt->closeCursor();
+			} catch (PDOException $ex) {
+				echo 'PDO error in model.';
+			}
+		}
+		else{ 
+			echo  "<p>Please enter a search query</p>"; 
+		} 
+	} 
+} 
 ?> 
 
-	<form  method="post" action="search.php?go"  id="searchform"> 
+	<form  method="post" action="picture.php?go"  id="searchform"> 
       <input  type="text" name="name"> 
       <input  type="submit" name="submit" value="Search"> 
     </form> 
