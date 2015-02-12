@@ -21,11 +21,11 @@
 <?php
 
 // It would be better to store these in a different file
-$dbUser = 'root';
-$dbPass = 'c06ke1';
-$dbName = 'picSite';
-$dbHost = '127.0.0.1'; // for my configuration, I need this rather than 'localhost'
-$dbPort = '3307';
+	$dbHost = "http://php-jamesrichter.rhcloud.com";
+	$dbPort = "3306";
+	$dbUser = "adminYwPVfAG";
+	$dbPass = "pCTEtPQQJZI8";
+	$dbName = "picSite";
 
 try
 {
