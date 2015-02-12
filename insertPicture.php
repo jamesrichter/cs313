@@ -21,7 +21,7 @@ $image = $_POST['txtImage'];
 	$dbHost = "http://php-jamesrichter.rhcloud.com";
 	$dbPort = "3306";
 	$dbUser = "adminYwPVfAG";
-	$dbPassword = "pCTEtPQQJZI8";
+	$dbPass = "pCTEtPQQJZI8";
 	$dbName = "picSite";
 
 try
