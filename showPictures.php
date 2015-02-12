@@ -1,60 +1,75 @@
-<?php
-/**********************************************************
-* File: viewScriptures.php
-* Author: Br. Burton
-* 
-* Description: This file shows an example of how to query a
-*   MySql database from PHP.
-***********************************************************/
-?>
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Picture List</title>
-</head>
-
+<title>Pictures</title>
 <body>
-<div>
+<?php 
 
-<h1>Picture List</h1>
-<?php
+include "loadPicDatabase.php";
 
-include 'loadPicDatabase.php';
+// This will retrieve scriptures from the database
+function getPicSite($id) {
+	$conn = loadDatabase();
 
-
-try
-{
-	// Create the PDO connection
-	$db = loadDatabase();
-
-	// this line makes PDO give us an exception when there are problems, and can be very helpful in debugging!
-	$db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-
-	// prepare the statement
-	$statement = $db->prepare('SELECT pictureID, title, image, userID FROM picture');
-	$statement->execute();
-
-	// Go through each result
-	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-	{
-		echo '<p>';
-		echo '<strong>' . $row['pictureID'] . ' ' . $row['title'] . ' ';
-		echo $row['image'] . '</strong>' . ' ' . $row['userID'];
-		echo '<br />';
-		echo '</p>';
+	try {
+		$sql = 'SELECT * FROM picture';  
+		$stmt = $conn->prepare($sql);
+		$stmt->execute();
+		$data = $stmt->fetchAll();
+		$stmt->closeCursor();
+	} catch (PDOException $ex) {
+		echo 'PDO error in model.';
 	}
 
+	if (is_array($data)) {
+		return $data;
+	} else {
+		return FALSE;
+	}
+}
+
+$test = getPicSite(1);
+echo "<h1>Recent Pictures</h1>";
+foreach ($test as $key => $value) {
+	echo " " . $value['title'] . "
+	 <img src=\"" . $value['image'] . "\" height=\"200\"
+	 width=\"200\">
+	  " . $value['pictureID']
+	. " " . $value['userID'] .
+	" ";
 
 }
-catch (PDOException $ex)
-{
-	echo "Error with DB. Details: $ex";
-	die();
-}
+
 
 ?>
 
-</div>
+<?php 
+if(isset($_POST['submit'])){ 
+	if(isset($_GET['go'])){ 
+		if(preg_match("/^[  a-zA-Z]+/", $_POST['name'])){ 
+			$name=$_POST['name']; 
+	  		//connect  to the database 
+			$conn = loadDatabase(); 
+	  		//-query  the database table 
+			try {
+				$sql="SELECT * FROM picture WHERE title LIKE '%" . $name .  "%'"; 
+				$stmt = $conn->prepare($sql);
+				$stmt->execute();
+				$data = $stmt->fetchAll();
+				$stmt->closeCursor();
+			} catch (PDOException $ex) {
+				echo 'PDO error in model.';
+			}
+		}
+		else{ 
+			echo  "<p>Please enter a search query</p>"; 
+		} 
+	} 
+} 
+?> 
 
+	<form  method="post" action="picture.php?go"  id="searchform"> 
+      <input  type="text" name="name"> 
+      <input  type="submit" name="submit" value="Search"> 
+    </form> 
 </body>
 </html>
