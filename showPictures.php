@@ -17,20 +17,15 @@
 <div>
 
 <h1>Picture List</h1>
-
 <?php
 
-// It would be better to store these in a different file
-	$dbHost = "http://php-jamesrichter.rhcloud.com";
-	$dbPort = "3306";
-	$dbUser = "adminYwPVfAG";
-	$dbPass = "pCTEtPQQJZI8";
-	$dbName = "picSite";
+include 'loadPicDatabase.php';
+
 
 try
 {
 	// Create the PDO connection
-	$db = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
+	$db = loadDatabase();
 
 	// this line makes PDO give us an exception when there are problems, and can be very helpful in debugging!
 	$db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
