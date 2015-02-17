@@ -2,10 +2,17 @@
 if(isset($_POST['submit'])){ 
 	if(isset($_GET['go'])){ 
 		if(preg_match("/^[a-zA-Z]+/", $_POST['username'])){
-			$_SESSION["user"] = "adminYwPVfAG";
-			$_SESSION["password"] = "pCTEtPQQJZI8";
-			header("Location: https://php-jamesrichter.rhcloud.com/showPictures.php");
-			die();
+			$_SESSION["user"] = $_POST['username'];
+			$_SESSION["password"] = $_POST['password'];
+
+			try {
+				loadDatabase($_SESSION["user"], $_SESSION["password"]);
+				header("Location: https://php-jamesrichter.rhcloud.com/showPictures.php");
+				die();
+			}
+			catch (Exception $ex){
+				echo 'Could not login.';
+			}
 		}
 	}
 }
