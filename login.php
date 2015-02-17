@@ -31,7 +31,7 @@ if(isset($_POST['submit'])){
 }
 
 echo '
-<form  method="post" action="login.php"  id="searchform"> 
+<form  method="post" action="verifyLogin.php"  id="searchform"> 
   Username<input  type="text" name="username"><br/>
   Password<input  type="password" name="password"> 
   <input  type="submit" name="submit" value="Login"> 
