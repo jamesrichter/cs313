@@ -1,6 +1,5 @@
 <?php
 if(isset($_POST['submit'])){ 
-	if(isset($_GET['go'])){ 
 		if(preg_match("/^[a-zA-Z]+/", $_POST['username'])){
 			$_SESSION["user"] = $_POST['username'];
 			$_SESSION["password"] = $_POST['password'];
@@ -22,11 +21,10 @@ if(isset($_POST['submit'])){
 					';
 			}
 		}
-	}
 }
 
 echo '
-<form  method="post" action="login.php?go"  id="searchform"> 
+<form  method="post" action="login.php"  id="searchform"> 
   Username<input  type="text" name="username"><br/>
   Password<input  type="password" name="password"> 
   <input  type="submit" name="submit" value="Login"> 
