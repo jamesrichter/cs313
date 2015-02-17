@@ -77,7 +77,7 @@ if(isset($_POST['submit'])){
 } 
 ?> 
 
-	<form  method="post" action="picture.php?go"  id="searchform"> 
+	<form  method="post" action="showPictures.php?go"  id="searchform"> 
       <input  type="text" name="name"> 
       <input  type="submit" name="submit" value="Search"> 
     </form> 
