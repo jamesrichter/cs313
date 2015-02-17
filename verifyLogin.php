@@ -1,13 +1,5 @@
 <?php
-session_start();
 
-include "loadPicDatabase.php";
-/*
-if !isset($SESSION["user"]){
-	$_SESSION["user"] = "adminYwPVfAG";
-	$_SESSION["password"] = "pCTEtPQQJZI8";
-}
-*/
 if(isset($_POST['submit'])){ 
 	$_SESSION["user"] = $_POST['username'];
 	$_SESSION["password"] = $_POST['password'];
@@ -30,11 +22,4 @@ if(isset($_POST['submit'])){
 	}
 }
 
-echo '
-<form  method="post" action="login.php"  id="searchform"> 
-  Username<input  type="text" name="username"><br/>
-  Password<input  type="password" name="password"> 
-  <input  type="submit" name="submit" value="Login"> 
-</form>
-';
 ?>
