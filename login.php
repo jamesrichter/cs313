@@ -10,10 +10,11 @@ if(isset($_POST['submit'])){
 	}
 }
 
+echo '
 <form  method="post" action="login.php?go"  id="searchform"> 
   <input  type="text" name="username"> 
   <input  type="text" name="password"> 
   <input  type="submit" name="submit" value="Login"> 
 </form>
-
+';
 ?>
