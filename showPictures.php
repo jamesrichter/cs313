@@ -1,3 +1,13 @@
+<?php
+session_start();
+if !isset($SESSION["user"]){
+	$_SESSION["user"] = "adminYwPVfAG";
+	$_SESSION["password"] = "pCTEtPQQJZI8";
+}
+include "showLoginBar.php";
+showLoginBar();
+?>
+
 <!DOCTYPE html>
 <html>
 <title>Pictures</title>
@@ -8,7 +18,7 @@ include "loadPicDatabase.php";
 
 // This will retrieve scriptures from the database
 function getPicSite($id) {
-	$conn = loadDatabase();
+	$conn = loadDatabase($_SESSION["user"], $_SESSION["password"]);
 
 	try {
 		$sql = 'SELECT * FROM picture';  

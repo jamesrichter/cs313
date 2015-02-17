@@ -1,13 +1,13 @@
 <?php
-/**********************************************************
-* File: topicEntry.php
-* Author: Br. Burton
-* 
-* Description: This is the PHP file that the user starts with.
-*   It has a form to enter a new scripture and topic.
-*   It posts to the insertTopic.php page.
-***********************************************************/
+session_start();
+if !isset($SESSION["user"]){
+	$_SESSION["user"] = "adminYwPVfAG";
+	$_SESSION["password"] = "pCTEtPQQJZI8";
+}
+include "showLoginBar.php";
+showLoginBar();
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>

@@ -1,11 +1,9 @@
 <?php
 
-function loadDatabase()
+function loadDatabase($dbUser, $dbPassword)
 {
 	$dbHost = "http://php-jamesrichter.rhcloud.com";
 	$dbPort = "3306";
-	$dbUser = "adminYwPVfAG";
-	$dbPassword = "pCTEtPQQJZI8";
 	$dbName = "picSite";
 	$openShiftVar = getenv('OPENSHIFT_MYSQL_DB_HOST');
 	if ($openShiftVar === null || $openShiftVar == "")
