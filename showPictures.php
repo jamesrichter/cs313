@@ -42,7 +42,7 @@ echo "<h1>Recent Pictures</h1>";
 foreach ($test as $key => $value) {
 	echo " " . $value['title'] . "
 	 <img src=\"" . $value['image'] . "\" height=\"200\"
-	 width=\"200\">
+	 >
 	  " . $value['pictureID']
 	. " " . $value['userID'] .
 	" ";
