@@ -78,7 +78,7 @@ if ($badLogin)
 }
 ?>
 
-<form  method="post" action="verifyLogin.php"  id="searchform"> 
+<form  method="post" action="login.php"  id="searchform"> 
   Username<input  type="text" name="txtUsername"><br/>
   Password<input  type="password" name="txtPassword"> 
   <input  type="submit" name="submit" value="Login"> 
