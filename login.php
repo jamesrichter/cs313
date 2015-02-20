@@ -1,11 +1,11 @@
 <?php
+session_start();
 require("password.php"); // used for password hashing.
 require("loadPicDatabase.php");
-session_start();
 
 $badLogin = false;
 
-if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
+if (isset($_POST['txtUsername']) && isset($_POST['txtPassword']))
 {
 	// they have submitted a username and password for us to check
 	$username = $_POST['txtUsername'];
@@ -65,7 +65,7 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Log In 2</title>
+	<title>Log In</title>
 </head>
 
 <body>
