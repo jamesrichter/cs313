@@ -79,8 +79,10 @@ if ($badLogin)
 ?>
 
 </div>
-<form  method="post" action="login.php"  id="searchform"> 
-  Username<input  type="text" name="txtUsername"><br/>
-  Password<input  type="password" name="txtPassword"> 
-  <input  type="submit" name="submit" value="Login"> 
+<form  method="POST" action="login.php"  id="loginForm">
+	Username<input  type="text" name="txtUsername"><br/>
+	Password<input  type="password" name="txtPassword">
+	<input  type="submit" name="submit" value="Login"> 
 </form>
+</body>
+</html>
