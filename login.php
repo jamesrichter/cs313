@@ -65,7 +65,7 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Log In</title>
+	<title>Log In 2</title>
 </head>
 
 <body>
