@@ -2,6 +2,11 @@
 session_start();
 include "showLoginBar.php";
 include "loadPicDatabase.php";
+
+if (!isset($_SESSION["username"]))
+{
+	$_SESSION["username"] = guest;
+}
 ?>
 
 <!DOCTYPE html>

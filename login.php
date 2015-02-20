@@ -35,7 +35,7 @@ if (isset($_POST['txtUsername']) && isset($_POST['txtPassword']))
 			if (password_verify($password, $hashedPasswordFromDB))
 			{
 				// password was correct, put the user on the session, and redirect to home
-				$_SESSION['user'] = $username;
+				$_SESSION['username'] = $username;
 				header("Location: showPictures.php");
 				die(); // we always include a die after redirects.
 			}
