@@ -14,7 +14,7 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 	try
 	{
 		// Create the PDO connection
-		$db = loadDatabase("adminYwPVfAG","pCTEtPQQJZI8");
+		$db = loadDatabase();
 
 		// this line makes PDO give us an exception when there are problems, and can be very helpful in debugging!
 		$db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
@@ -35,7 +35,7 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 			if (password_verify($password, $hashedPasswordFromDB))
 			{
 				// password was correct, put the user on the session, and redirect to home
-				$_SESSION['username'] = $username;
+				$_SESSION['user'] = $username;
 				header("Location: showPictures.php");
 				die(); // we always include a die after redirects.
 			}
@@ -78,6 +78,7 @@ if ($badLogin)
 }
 ?>
 
+</div>
 <form  method="post" action="login.php"  id="searchform"> 
   Username<input  type="text" name="txtUsername"><br/>
   Password<input  type="password" name="txtPassword"> 
