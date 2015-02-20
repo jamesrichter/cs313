@@ -13,7 +13,7 @@
 
 // used for password hashing. If we don't have php 5.5 or later (e.g. openshift)
 // then we will need to have this file in our path (e.g., in the current directory)
-require("loadPicDatabase.php")
+require("loadPicDatabase.php");
 require("password.php");
 
 // get the data from the POST
