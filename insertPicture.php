@@ -18,6 +18,14 @@ $title = $_POST['txtTitle'];
 $image = $_POST['txtImage'];
 $userID = $_SESSION['userID'];
 
+if (isset($userID)){
+	echo "userid set";
+}
+else
+{
+	echo "not set";
+}
+
 try
 {
 	// Create the PDO connection
@@ -33,7 +41,7 @@ try
 
 	$statement->bindParam(':title', $title);
 	$statement->bindParam(':image', $image);
-	$statement->bindParam(':userID', 4);
+	$statement->bindParam(':userID', $userID);
 
 	$statement->execute();
 
