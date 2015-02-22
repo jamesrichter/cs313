@@ -34,7 +34,7 @@ if (isset($_POST['txtUsername']) && isset($_POST['txtPassword']))
 			$row = $statement->fetch();
 			echo $row;
 			$hashedPasswordFromDB = $row['password'];
-			
+			$userID = $row['id'];
 			if (isset($userID))
 			{
 				echo $userID;
