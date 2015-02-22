@@ -29,14 +29,23 @@ if (isset($_POST['txtUsername']) && isset($_POST['txtPassword']))
 		{
 			$row = $statement->fetch();
 			$hashedPasswordFromDB = $row['password'];
-
+			$userID = $row['id'];
+			if (isset($userID))
+			{
+				echo $userID;
+			}
 			// now check to see if the hashed password matches
 			if (password_verify($password, $hashedPasswordFromDB))
 			{
 				// password was correct, put the user on the session, and redirect to home
 				$_SESSION['username'] = $username;
 				$_SESSION['userID'] = $row['id'];
-				header("Location: showPictures.php");
+				if (isset($_SESSION['userID']))
+				{
+					echo $_SESSION['userID'];
+					echo $row['id'];
+				}
+				//header("Location: showPictures.php");
 				die(); // we always include a die after redirects.
 			}
 			else
