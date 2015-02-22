@@ -42,7 +42,10 @@ echo "
 <body>
 ";
 showLoginBar();
-echo $data('title');
+echo $data['pictureID'];
+echo $data['title'];
+echo $data['image'];
+echo $data['userID'];
 echo "
 </body>
 </html>
