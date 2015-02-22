@@ -13,7 +13,30 @@
 ***********************************************************/
 include 'loadPicDatabase.php';
 session_start();
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign Up</title>
+</head>
+
+<body>
+
+<?php
 // get the data from the POST
+if (isset($_POST['txtTitle']))
+{
+	echo $_POST['txtTitle'];
+}
+if (isset($_POST['txtImage']))
+{
+	echo $_POST['txtImage'];
+}
+if (isset($_SESSION['userID']))
+{
+	echo $_SESSION['userID'];
+}
 $title = $_POST['txtTitle'];
 $image = $_POST['txtImage'];
 $userID = $_SESSION['userID'];
@@ -65,3 +88,6 @@ die(); // we always include a die after redirects. In this case, there would be 
        // to see.
 
 ?>
+
+</body>
+</html>
