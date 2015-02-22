@@ -7,9 +7,7 @@
 *
 ***********************************************************/
 
-session_start();
-$_SESSION['username'] = "guest";
-$_SESSION['userID'] = "";
+session_reset();
 
 header("Location: showPictures.php");
 die(); // we always include a die after redirects.
