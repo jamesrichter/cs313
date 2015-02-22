@@ -29,6 +29,7 @@ function getPic($id) {
 	} else {
 		return FALSE;
 	}
+}
 
 $data = getPic($picID);
 
@@ -38,13 +39,13 @@ echo "
 <head>
 	<title>" . $data['title'] . "</title>
 </head>
-
 <body>
 ";
-
 showLoginBar();
-
-?>
-
+echo $data('title');
+echo "
 </body>
 </html>
+";
+
+?>
