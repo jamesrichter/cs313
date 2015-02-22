@@ -5,6 +5,7 @@ session_start();
 
 if (isset($_GET['id'])) 
 {
+	echo $_GET['id'];
 	$picID = $_GET['id'];
 }
 else {
@@ -15,9 +16,9 @@ function getPic($id) {
 	$conn = loadDatabase();
 
 	try {
-		$sql = 'SELECT * FROM picture WHERE pictureID=:picID'; 
+		$sql = 'SELECT * FROM picture WHERE pictureID=1'; 
 		$stmt = $conn->prepare($sql);
-		$stmt->bindParam(':picID', $picID);
+		//$stmt->bindParam(':picID', $picID);
 		$stmt->execute();
 		$data = $stmt->fetchAll();
 		$stmt->closeCursor();
