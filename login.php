@@ -10,7 +10,6 @@ if (isset($_POST['txtUsername']) && isset($_POST['txtPassword']))
 	// they have submitted a username and password for us to check
 	$username = $_POST['txtUsername'];
 	$password = $_POST['txtPassword'];
-
 	try
 	{
 		// Create the PDO connection
@@ -36,6 +35,7 @@ if (isset($_POST['txtUsername']) && isset($_POST['txtPassword']))
 			{
 				// password was correct, put the user on the session, and redirect to home
 				$_SESSION['username'] = $username;
+				$_SESSION['userID'] = $row['id'];
 				header("Location: showPictures.php");
 				die(); // we always include a die after redirects.
 			}
