@@ -8,6 +8,7 @@ $badLogin = false;
 if (isset($_POST['txtUsername']) && isset($_POST['txtPassword']))
 {
 	// they have submitted a username and password for us to check
+	echo "1";
 	$username = $_POST['txtUsername'];
 	$password = $_POST['txtPassword'];
 	try
@@ -65,10 +66,6 @@ if (isset($_POST['txtUsername']) && isset($_POST['txtPassword']))
 		die();
 	}
 
-}
-else
-{
-	$badLogin = true;
 }
 
 ?>
