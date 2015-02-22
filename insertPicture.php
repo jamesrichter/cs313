@@ -12,7 +12,7 @@
 *   the resulting list.
 ***********************************************************/
 include 'loadPicDatabase.php';
-
+session_start();
 // get the data from the POST
 $title = $_POST['txtTitle'];
 $image = $_POST['txtImage'];
@@ -45,6 +45,8 @@ catch (Exception $ex)
 {
 	// Please be aware that you don't want to output the Exception message in
 	// a production environment
+	echo $_SESSION['userID'];
+	echo "<br/>"
 	echo "Error with DB. Details: $ex";
 	die();
 }

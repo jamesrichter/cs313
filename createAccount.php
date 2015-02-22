@@ -10,7 +10,7 @@
 *   which does the actual creation.
 *
 ***********************************************************/
-
+session_start();
 // used for password hashing. If we don't have php 5.5 or later (e.g. openshift)
 // then we will need to have this file in our path (e.g., in the current directory)
 require("loadPicDatabase.php");
