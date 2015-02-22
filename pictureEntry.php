@@ -1,11 +1,6 @@
 <?php
 session_start();
-if !isset($SESSION["user"]){
-	$_SESSION["user"] = "adminYwPVfAG";
-	$_SESSION["password"] = "pCTEtPQQJZI8";
-}
 include "showLoginBar.php";
-showLoginBar();
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +11,10 @@ showLoginBar();
 
 <body>
 <div>
+
+<?php
+showLoginBar();
+?>
 
 <h1>Enter New Pictures</h1>
 
@@ -30,7 +29,7 @@ showLoginBar();
 	<br />
 	<br />
 
-	<input type="submit" value="Add to Database" />
+	<input type="submit" value="Upload Picture" />
 
 </form>
 

@@ -16,6 +16,7 @@ include 'loadPicDatabase.php';
 // get the data from the POST
 $title = $_POST['txtTitle'];
 $image = $_POST['txtImage'];
+$user = $_SESSION['username'];
 
 try
 {
@@ -26,12 +27,13 @@ try
 	$db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 
 	// First Add the Scripture
-	$query = 'INSERT INTO picture(title, image, userID) VALUES(:title, :image, 1)';
+	$query = 'INSERT INTO picture(title, image, userID) VALUES(:title, :image, :user)';
 
 	$statement = $db->prepare($query);
 
 	$statement->bindParam(':title', $title);
 	$statement->bindParam(':image', $image);
+	$statement->bindParam(':user', $image);
 
 	$statement->execute();
 
