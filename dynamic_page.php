@@ -42,6 +42,7 @@ echo "
 <body>
 ";
 showLoginBar();
+echo $data;
 echo $data['pictureID'];
 echo $data['title'];
 echo $data['image'];
