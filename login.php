@@ -8,15 +8,14 @@ $badLogin = false;
 if (isset($_POST['txtUsername']) && isset($_POST['txtPassword']))
 {
 	// they have submitted a username and password for us to check
-	echo "1";
+	
 	$username = $_POST['txtUsername'];
-	echo "1";
 	$password = $_POST['txtPassword'];
-	echo "2";
+	
 	try
 	{
 		// Create the PDO connection
-		echo "1";
+		
 		$db = loadDatabase();
 
 		// this line makes PDO give us an exception when there are problems, and can be very helpful in debugging!
@@ -28,28 +27,21 @@ if (isset($_POST['txtUsername']) && isset($_POST['txtPassword']))
 		$statement->bindParam(':username', $username);
 
 		$result = $statement->execute();
-		echo "3";
+		
 		if ($result)
 		{
 			$row = $statement->fetch();
 			echo $row;
 			$hashedPasswordFromDB = $row['password'];
 			$userID = $row['id'];
-			if (isset($userID))
-			{
-				echo $userID;
-			}
+
 			// now check to see if the hashed password matches
 			if (password_verify($password, $hashedPasswordFromDB))
 			{
 				// password was correct, put the user on the session, and redirect to home
 				$_SESSION['username'] = $username;
-				echo "4";
-				if (isset($_SESSION['userID']))
-				{
-					echo $_SESSION['userID'];
-				}
-				//header("Location: showPictures.php");
+				$_SESSION['userID'] = $userID;
+				header("Location: showPictures.php");
 				die(); // we always include a die after redirects.
 			}
 			else
