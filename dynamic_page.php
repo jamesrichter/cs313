@@ -3,7 +3,8 @@ include 'loadPicDatabase.php';
 include 'showLoginBar.php';
 session_start();
 
-if (isset($_GET['id'])) {
+if (isset($_GET['id'])) 
+{
 	$picID = $_GET['id'];
 }
 else {
@@ -14,7 +15,7 @@ function getPic($id) {
 	$conn = loadDatabase();
 
 	try {
-		$sql = 'SELECT * FROM picture WHERE pictureID=":picID"'; 
+		$sql = 'SELECT * FROM picture WHERE pictureID=:picID'; 
 		$stmt = $conn->prepare($sql);
 		$stmt->bindParam(':picID', $picID);
 		$stmt->execute();
