@@ -12,6 +12,7 @@ else {
 	echo "Image not found.";
 }
 
+/**
 function getPic($id) {
 	$conn = loadDatabase();
 
@@ -61,5 +62,5 @@ echo "
 </body>
 </html>
 ";
-
+**/
 ?>
