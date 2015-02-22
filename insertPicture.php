@@ -27,7 +27,7 @@ try
 	$db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 
 	// First Add the Scripture
-	$query = 'INSERT INTO picture(title, image, userID) VALUES(:title, :image, :userID)';
+	$query = 'INSERT INTO picture(title, image, userID) VALUES(:title, :image, 4)';
 
 	$statement = $db->prepare($query);
 
@@ -45,8 +45,6 @@ catch (Exception $ex)
 {
 	// Please be aware that you don't want to output the Exception message in
 	// a production environment
-	echo $_SESSION['userID'];
-	echo "<br/>"
 	echo "Error with DB. Details: $ex";
 	die();
 }
