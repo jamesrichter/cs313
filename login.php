@@ -22,7 +22,7 @@ if (isset($_POST['txtUsername']) && isset($_POST['txtPassword']))
 		// this line makes PDO give us an exception when there are problems, and can be very helpful in debugging!
 		$db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 
-		$query = 'SELECT password FROM login WHERE username=:username';
+		$query = 'SELECT * FROM login WHERE username=:username';
 
 		$statement = $db->prepare($query);
 		$statement->bindParam(':username', $username);
