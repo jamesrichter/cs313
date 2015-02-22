@@ -16,9 +16,9 @@ function getPic($id) {
 	$conn = loadDatabase();
 
 	try {
-		$sql = 'SELECT * FROM picture WHERE pictureID=1'; 
+		$sql = 'SELECT * FROM picture WHERE pictureID=:picID'; 
 		$stmt = $conn->prepare($sql);
-		//$stmt->bindParam(':picID', $picID);
+		$stmt->bindParam(':picID', $id);
 		$stmt->execute();
 		$data = $stmt->fetchAll();
 		$stmt->closeCursor();
@@ -43,11 +43,14 @@ echo "
 </head>
 <body>
 ";
+
 showLoginBar();
 echo $data;
-foreach ($data as $key => $value) {
+foreach ($key in $data) 
+{
+	echo ";";
 	echo $key;
-	echo $value;
+	echo ";";
 }
 
 echo $data['pictureID'];
