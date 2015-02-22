@@ -44,7 +44,7 @@ foreach ($test as $key => $value) {
 	$value['title'] . 
 	"<a href=\"dynamic_page.php?id=" .
 	$value['pictureID'] .
-	"><img src=\"" .
+	"\"><img src=\"" .
 	$value['image'] .
 	"\" height=\"200\"></a>";
 
