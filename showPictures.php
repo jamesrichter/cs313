@@ -47,7 +47,6 @@ foreach ($test as $key => $value) {
 	"\"><img src=\"" .
 	$value['image'] .
 	"\" height=\"200\"></a>";
-
 }
 
 

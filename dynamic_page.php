@@ -44,6 +44,11 @@ echo "
 ";
 showLoginBar();
 echo $data;
+foreach ($data as $key => $value) {
+	echo $key;
+	echo $value;
+}
+
 echo $data['pictureID'];
 echo $data['title'];
 echo $data['image'];
