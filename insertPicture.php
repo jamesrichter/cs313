@@ -37,6 +37,7 @@ try
 
 	$statement->execute();
 
+
 	// get the new id
 	$pictureID = $db->lastInsertId();
 }
