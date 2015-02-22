@@ -33,7 +33,7 @@ try
 
 	$statement->bindParam(':title', $title);
 	$statement->bindParam(':image', $image);
-	$statement->bindParam(':user', $userID);
+	$statement->bindParam(':userID', $userID);
 
 	$statement->execute();
 
