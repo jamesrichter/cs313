@@ -37,8 +37,6 @@ function getPicSite($id) {
 	}
 }
 
-"<div class=\"title\"><a href=\"dynamic_page.php?id=$result[id]\">$result[title]</a></div>"
-
 $test = getPicSite(1);
 echo "<h1>Recent Pictures</h1>";
 foreach ($test as $key => $value) {
