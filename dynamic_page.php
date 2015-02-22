@@ -12,14 +12,12 @@ else {
 	echo "Image not found.";
 }
 
-/**
-function getPic($id) {
+function getPicSite() {
 	$conn = loadDatabase();
 
 	try {
-		$sql = 'SELECT * FROM picture WHERE pictureID=1'; 
+		$sql = 'SELECT * FROM picture';  
 		$stmt = $conn->prepare($sql);
-		$stmt->bindParam(':picID', $id);
 		$stmt->execute();
 		$data = $stmt->fetchAll();
 		$stmt->closeCursor();
@@ -34,25 +32,19 @@ function getPic($id) {
 	}
 }
 
-$data = getPic($picID);
-
-echo "
-<!DOCTYPE html>
-<html>
-<head>
-	<title>" . $data['title'] . "</title>
-</head>
-<body>
-";
-
-showLoginBar();
-echo $data;
-foreach ($key in $data) 
-{
-	echo ";";
-	echo $key;
-	echo ";";
+$test = getPicSite();
+echo "<h1>Recent Pictures</h1>";
+foreach ($test as $key => $value) {
+	echo " " .
+	$value['title'] . 
+	"<a href=\"dynamic_page.php?id=" .
+	$value['pictureID'] .
+	"\"><img src=\"" .
+	$value['image'] .
+	"\" height=\"200\"></a>";
 }
+/**
+showLoginBar();
 
 echo $data['pictureID'];
 echo $data['title'];
