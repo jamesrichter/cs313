@@ -27,13 +27,13 @@ try
 	$db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 
 	// First Add the Scripture
-	$query = 'INSERT INTO picture(title, image, userID) VALUES(:title, :image, 4)';
+	$query = 'INSERT INTO picture(title, image, userID) VALUES(:title, :image, :userID)';
 
 	$statement = $db->prepare($query);
 
 	$statement->bindParam(':title', $title);
 	$statement->bindParam(':image', $image);
-	//$statement->bindParam(':userID', $userID);
+	$statement->bindParam(':userID', 4);
 
 	$statement->execute();
 
