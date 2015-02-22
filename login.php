@@ -39,11 +39,9 @@ if (isset($_POST['txtUsername']) && isset($_POST['txtPassword']))
 			{
 				// password was correct, put the user on the session, and redirect to home
 				$_SESSION['username'] = $username;
-				$_SESSION['userID'] = $row['id'];
 				if (isset($_SESSION['userID']))
 				{
 					echo $_SESSION['userID'];
-					echo $row['id'];
 				}
 				//header("Location: showPictures.php");
 				die(); // we always include a die after redirects.

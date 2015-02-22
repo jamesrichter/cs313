@@ -6,8 +6,10 @@
 * Description: Clears the username from the session if there.
 *
 ***********************************************************/
+session_start();
 
-session_reset();
+$_SESSION['username'] = "";
+$_SESSION['userID'] = '';
 
 header("Location: showPictures.php");
 die(); // we always include a die after redirects.
