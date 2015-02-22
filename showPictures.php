@@ -16,7 +16,7 @@ if (!isset($_SESSION["username"]))
 <?php 
 showLoginBar();
 
-// This will retrieve scriptures from the database
+// This will retrieve images from the database
 function getPicSite($id) {
 	$conn = loadDatabase();
 
@@ -37,15 +37,18 @@ function getPicSite($id) {
 	}
 }
 
+"<div class=\"title\"><a href=\"dynamic_page.php?id=$result[id]\">$result[title]</a></div>"
+
 $test = getPicSite(1);
 echo "<h1>Recent Pictures</h1>";
 foreach ($test as $key => $value) {
-	echo " " . $value['title'] . "
-	 <img src=\"" . $value['image'] . "\" height=\"200\"
-	 >
-	  " . $value['pictureID']
-	. " " . $value['userID'] .
-	" ";
+	echo " " .
+	$value['title'] . 
+	"<a href=\"dynamic_page.php?id=" .
+	$value['pictureID'] .
+	"><img src=\"" .
+	$value['image'] .
+	"\" height=\"200\"></a>";
 
 }
 

@@ -25,29 +25,9 @@ session_start();
 
 <?php
 // get the data from the POST
-if (isset($_POST['txtTitle']))
-{
-	echo $_POST['txtTitle'];
-}
-if (isset($_POST['txtImage']))
-{
-	echo $_POST['txtImage'];
-}
-if (isset($_SESSION['userID']))
-{
-	echo $_SESSION['userID'];
-}
 $title = $_POST['txtTitle'];
 $image = $_POST['txtImage'];
 $userID = $_SESSION['userID'];
-
-if (isset($userID)){
-	echo "userid set";
-}
-else
-{
-	echo "not set";
-}
 
 try
 {
@@ -68,7 +48,6 @@ try
 
 	$statement->execute();
 
-
 	// get the new id
 	$pictureID = $db->lastInsertId();
 }
@@ -86,7 +65,6 @@ die(); // we always include a die after redirects. In this case, there would be 
        // harm if the user got the rest of the page, because there is nothing else
        // but in general, there could be things after here that we don't want them
        // to see.
-
 ?>
 
 </body>
