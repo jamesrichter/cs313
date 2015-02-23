@@ -5,7 +5,6 @@ session_start();
 
 if (isset($_GET['id'])) 
 {
-	echo $_GET['id'];
 	$picID = $_GET['id'];
 }
 else {
@@ -16,8 +15,9 @@ function getPicSite() {
 	$conn = loadDatabase();
 
 	try {
-		$sql = 'SELECT * FROM picture where pictureID = 1';  
+		$sql = 'SELECT * FROM picture where pictureID = :id';  
 		$stmt = $conn->prepare($sql);
+		$statement->bindParam(':id', $picID);
 		$stmt->execute();
 		$data = $stmt->fetchAll();
 		$stmt->closeCursor();
@@ -33,7 +33,6 @@ function getPicSite() {
 }
 
 $test = getPicSite();
-echo "<h1>Recent Pictures</h1>";
 foreach ($test as $key => $value) {
 	echo " " .
 	$value['title'] . 
