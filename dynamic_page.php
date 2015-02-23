@@ -16,7 +16,7 @@ function getPicSite() {
 	$conn = loadDatabase();
 
 	try {
-		$sql = 'SELECT * FROM picture';  
+		$sql = 'SELECT * FROM picture where pictureID = 1';  
 		$stmt = $conn->prepare($sql);
 		$stmt->execute();
 		$data = $stmt->fetchAll();
