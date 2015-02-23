@@ -17,7 +17,7 @@ function getPicSite() {
 	try {
 		$sql = 'SELECT * FROM picture where pictureID = :id';  
 		$stmt = $conn->prepare($sql);
-		$statement->bindParam(':id', $picID);
+		$stmt->bindParam(':id', $picID);
 		$stmt->execute();
 		$data = $stmt->fetchAll();
 		$stmt->closeCursor();
@@ -40,7 +40,7 @@ foreach ($test as $key => $value) {
 	$value['pictureID'] .
 	"\"><img src=\"" .
 	$value['image'] .
-	"\" height=\"200\"></a>";
+	"\" width=\"600\"></a>";
 }
 /**
 showLoginBar();
