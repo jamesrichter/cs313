@@ -19,8 +19,10 @@ function getPicSite() {
 		$stmt = $conn->prepare($sql);
 		$stmt->bindParam(":id", $picID);
 		$stmt->execute();
+		echo $stmt;
 		$data = $stmt->fetchAll();
 		$stmt->closeCursor();
+		echo $sql;
 	} catch (PDOException $ex) {
 		echo 'PDO error in model.';
 	}
@@ -41,6 +43,10 @@ if (isset($test))
 if ($test == FALSE)
 {
 	echo "false";
+}
+if ($test == TRUE)
+{
+	echo "true";
 }
 if (is_array($test))
 {
