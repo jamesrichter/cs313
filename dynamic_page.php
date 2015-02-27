@@ -18,8 +18,8 @@ function getPicSite() {
 		$sql = 'SELECT * FROM picture where pictureID = :id';  
 		$stmt = $conn->prepare($sql);
 		$stmt->bindParam(":id", $picID);
-		$stmt->execute();
 		echo $stmt;
+		$stmt->execute();
 		$data = $stmt->fetchAll();
 		$stmt->closeCursor();
 		echo $sql;
