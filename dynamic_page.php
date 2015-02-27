@@ -34,6 +34,14 @@ function getPicSite() {
 }
 
 $test = getPicSite();
+if (isset($test))
+{
+	echo "set";
+}
+if ($test = FALSE)
+{
+	echo "false";
+}
 echo $test;
 foreach ($test as $key => $value) {
 	echo " " .
