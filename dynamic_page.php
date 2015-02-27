@@ -17,9 +17,9 @@ function getPicSite() {
 	try {
 		$sql = 'SELECT * FROM picture where pictureID = :id';  
 		$stmt = $conn->prepare($sql);
-		$stmt->bindParam(:id, $picID);
+		$stmt->bindParam(":id", $picID);
 		$stmt->execute();
-		$data = $stmt->fetch();
+		$data = $stmt->fetchAll();
 		$stmt->closeCursor();
 	} catch (PDOException $ex) {
 		echo 'PDO error in model.';
