@@ -33,7 +33,9 @@ function getPicSite() {
 }
 
 $test = getPicSite();
-foreach ($test as $key => $value) {
+echo $test;
+foreach 
+foreach ($test as $value) {
 	echo " " .
 	$value['title'] . 
 	"<a href=\"dynamic_page.php?id=" .
