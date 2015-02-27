@@ -53,11 +53,13 @@ if ($test != FALSE)
 
 echo $test;
 foreach ($test as $key => $value) {
-	echo " " .
+	echo $key;
+	echo $value;
+	/*echo " " .
 	$value['title'] . 
 	" <img src='" .
 	$value['image'] .
-	"' width='600'>";
+	"' width='600'>";*/
 }
 /**
 showLoginBar();
