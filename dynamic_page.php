@@ -38,10 +38,19 @@ if (isset($test))
 {
 	echo "set";
 }
-if ($test = FALSE)
+if ($test == FALSE)
 {
 	echo "false";
 }
+if (is_array($test))
+{
+	echo "array";
+}
+if ($test != FALSE)
+{
+	echo "not galse";
+}
+
 echo $test;
 foreach ($test as $key => $value) {
 	echo " " .
