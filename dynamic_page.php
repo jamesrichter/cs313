@@ -26,6 +26,7 @@ function getPicSite() {
 	}
 
 	if (is_array($data)) {
+		echo "fine";
 		return $data;
 	} else {
 		return FALSE;
@@ -34,15 +35,12 @@ function getPicSite() {
 
 $test = getPicSite();
 echo $test;
-foreach 
-foreach ($test as $value) {
+foreach ($test as $key => $value) {
 	echo " " .
 	$value['title'] . 
-	"<a href=\"dynamic_page.php?id=" .
-	$value['pictureID'] .
-	"\"><img src=\"" .
+	" <img src='" .
 	$value['image'] .
-	"\" width=\"600\"></a>";
+	"' width='600'>";
 }
 /**
 showLoginBar();
