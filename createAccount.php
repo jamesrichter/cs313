@@ -1,6 +1,6 @@
 <?php
 /**********************************************************
-* File: createAccount.php
+* File: singup.php
 * Author: Br. Burton
 * 
 * Description: Allows a user to enter a new username
@@ -10,10 +10,9 @@
 *   which does the actual creation.
 *
 ***********************************************************/
-session_start();
+
 // used for password hashing. If we don't have php 5.5 or later (e.g. openshift)
 // then we will need to have this file in our path (e.g., in the current directory)
-require("loadPicDatabase.php");
 require("password.php");
 
 // get the data from the POST
@@ -28,16 +27,23 @@ if (!isset($username) || $username == ""
 }
 
 // Let's not allow HTML in our usernames. It would be best to detect this before
-// submitting the form and prevent the submission.
+// submitting the form and preven the submission.
 $username = htmlspecialchars($username);
 
 // Get the hashed password.
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
+
+// It would be better to store these in a different file
+$dbUser = 'ta6user';
+$dbPass = 'ta6pass';
+$dbName = 'LoginTest';
+$dbHost = '127.0.0.1'; // for my configuration, I need this rather than 'localhost'
+
 try
 {
 	// Create the PDO connection
-	$db = loadDatabase();
+	$db = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
 
 	// this line makes PDO give us an exception when there are problems, and can be very helpful in debugging!
 	$db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );

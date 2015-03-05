@@ -15,7 +15,7 @@ function getPicSite() {
 	$conn = loadDatabase();
 
 	try {
-		$sql = 'SELECT * FROM picture where pictureID = 1';  
+		$sql = 'SELECT * FROM picture where pictureID = $picID';  
 		$stmt = $conn->prepare($sql);
 		$stmt->bindParam(":id", $picID);
 		echo $stmt;

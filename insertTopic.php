@@ -13,8 +13,16 @@
 ***********************************************************/
 
 // get the data from the POST
-$title = $_POST['txtTitle'];
-$image = $_POST['txtImage'];
+$book = $_POST['txtBook'];
+$chapter = $_POST['txtChapter'];
+$verse = $_POST['txtVerse'];
+$content = $_POST['txtContent'];
+$topicIds = $_POST['chkTopics'];
+
+echo "book=$book\n";
+echo "chapter=$chapter\n";
+echo "verse=$verse\n";
+echo "content=$content\n";
 
 // we could put additional checks here to verify that all this data is actually provided
 
@@ -23,7 +31,7 @@ $image = $_POST['txtImage'];
     $dbPort = "3307";
 	$dbUser = "root";
 	$dbPass = "c06ke1";
-	$dbName = "picSite";
+	$dbName = "Scriptures";
 
 try
 {
@@ -34,17 +42,30 @@ try
 	$db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 
 	// First Add the Scripture
-	$query = 'INSERT INTO picture(title, image, userID) VALUES(:title, :image, 1)';
+	$query = 'INSERT INTO scripture(book, chapter, verse, content) VALUES(:book, :chapter, :verse, :content)';
 
 	$statement = $db->prepare($query);
 
-	$statement->bindParam(':title', $title);
-	$statement->bindParam(':image', $image);
+	$statement->bindParam(':book', $book);
+	$statement->bindParam(':chapter', $chapter);
+	$statement->bindParam(':verse', $verse);
+	$statement->bindParam(':content', $content);
 
 	$statement->execute();
 
 	// get the new id
-	$pictureID = $db->lastInsertId();
+	$scriptureId = $db->lastInsertId();
+
+	// Now go through each topic id in the list from the user's checkboxes
+	foreach ($topicIds as $topicId)
+	{
+		$statement = $db->prepare('INSERT INTO scripture_topic(scriptureId, topicId) VALUES(:scriptureId, :topicId)');
+
+		$statement->bindParam(':scriptureId', $scriptureId);
+		$statement->bindParam(':topicId', $topicId);
+
+		$statement->execute();
+	}
 }
 catch (Exception $ex)
 {
@@ -55,7 +76,7 @@ catch (Exception $ex)
 }
 
 // finally, redirect them to a new page to actually show the topics
-header("Location: showPictures.php");
+header("Location: showTopics.php");
 die(); // we always include a die after redirects. In this case, there would be no
        // harm if the user got the rest of the page, because there is nothing else
        // but in general, there could be things after here that we don't want them

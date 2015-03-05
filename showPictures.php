@@ -1,85 +1,65 @@
 <?php
-session_start();
-include "showLoginBar.php";
-include "loadPicDatabase.php";
-
-if (!isset($_SESSION["username"]))
-{
-	$_SESSION["username"] = guest;
-}
+/**********************************************************
+* File: viewScriptures.php
+* Author: Br. Burton
+* 
+* Description: This file shows an example of how to query a
+*   MySql database from PHP.
+***********************************************************/
 ?>
-
 <!DOCTYPE html>
 <html>
-<title>Pictures</title>
+<head>
+	<title>Picture List</title>
+</head>
+
 <body>
-<?php 
-showLoginBar();
+<div>
 
-// This will retrieve images from the database
-function getPicSite($id) {
-	$conn = loadDatabase();
+<h1>Picture List</h1>
 
-	try {
-		$sql = 'SELECT * FROM picture';  
-		$stmt = $conn->prepare($sql);
-		$stmt->execute();
-		$data = $stmt->fetchAll();
-		$stmt->closeCursor();
-	} catch (PDOException $ex) {
-		echo 'PDO error in model.';
+<?php
+
+// It would be better to store these in a different file
+$dbUser = 'root';
+$dbPass = 'c06ke1';
+$dbName = 'picSite';
+$dbHost = '127.0.0.1'; // for my configuration, I need this rather than 'localhost'
+$dbPort = '3307';
+
+try
+{
+	// Create the PDO connection
+	$db = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
+
+	// this line makes PDO give us an exception when there are problems, and can be very helpful in debugging!
+	$db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+
+	// prepare the statement
+	$statement = $db->prepare('SELECT pictureID, title, image, userID FROM picture');
+	$statement->execute();
+
+	// Go through each result
+	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+	{
+		echo '<p>';
+		echo '<strong>' . $row['pictureID'] . ' ' . $row['title'] . ' ';
+		echo $row['image'] . '</strong>' . ' ' . $row['userID'];
+		echo '<br />';
+		echo '</p>';
 	}
 
-	if (is_array($data)) {
-		return $data;
-	} else {
-		return FALSE;
-	}
-}
 
-$test = getPicSite(1);
-echo "<h1>Recent Pictures</h1>";
-foreach ($test as $key => $value) {
-	echo " " .
-	$value['title'] . 
-	"<a href=\"dynamic_page.php?id=" .
-	$value['pictureID'] .
-	"\"><img src=\"" .
-	$value['image'] .
-	"\" height=\"200\"></a>";
 }
-
+catch (PDOException $ex)
+{
+	echo "Error with DB. Details: $ex";
+	die();
+}
 
 ?>
 
-<?php 
-if(isset($_POST['submit'])){ 
-	if(isset($_GET['go'])){ 
-		if(preg_match("/^[  a-zA-Z]+/", $_POST['name'])){ 
-			$name=$_POST['name']; 
-	  		//connect  to the database 
-			$conn = loadDatabase(); 
-	  		//-query  the database table 
-			try {
-				$sql="SELECT * FROM picture WHERE title LIKE '%" . $name .  "%'"; 
-				$stmt = $conn->prepare($sql);
-				$stmt->execute();
-				$data = $stmt->fetchAll();
-				$stmt->closeCursor();
-			} catch (PDOException $ex) {
-				echo 'PDO error in model.';
-			}
-		}
-		else{ 
-			echo  "<p>Please enter a search query</p>"; 
-		} 
-	} 
-} 
-?> 
+</div>
 
-	<form  method="post" action="showPictures.php?go"  id="searchform"> 
-      <input  type="text" name="name"> 
-      <input  type="submit" name="submit" value="Search"> 
-    </form> 
 </body>
 </html>

@@ -1,8 +1,13 @@
 <?php
-session_start();
-include "showLoginBar.php";
+/**********************************************************
+* File: topicEntry.php
+* Author: Br. Burton
+* 
+* Description: This is the PHP file that the user starts with.
+*   It has a form to enter a new scripture and topic.
+*   It posts to the insertTopic.php page.
+***********************************************************/
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,10 +16,6 @@ include "showLoginBar.php";
 
 <body>
 <div>
-
-<?php
-showLoginBar();
-?>
 
 <h1>Enter New Pictures</h1>
 
@@ -29,7 +30,7 @@ showLoginBar();
 	<br />
 	<br />
 
-	<input type="submit" value="Upload Picture" />
+	<input type="submit" value="Add to Database" />
 
 </form>
 
