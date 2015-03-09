@@ -39,7 +39,7 @@ function getComments($picID){
 		$sql = 'SELECT * FROM picture 
 				INNER JOIN comment ON comment.pictureID=picture.pictureID
 				INNER JOIN login ON comment.userID=login.id
-				WHERE picture.pictureID=1';  
+				WHERE picture.pictureID=1:id';  
 		$stmt = $conn->prepare($sql);
 		$stmt->bindParam(":id", $picID);
 		$stmt->execute();
