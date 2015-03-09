@@ -11,35 +11,40 @@
 *   instead it redirects the user to showTopics.php to see
 *   the resulting list.
 ***********************************************************/
+include 'loadPicDatabase.php';
+session_start();
+?>
 
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inserting...</title>
+</head>
+
+<body>
+
+<?php
 // get the data from the POST
 $title = $_POST['txtTitle'];
 $image = $_POST['txtImage'];
-
-// we could put additional checks here to verify that all this data is actually provided
-
-
-	$dbHost = "127.0.0.1";
-    $dbPort = "3307";
-	$dbUser = "root";
-	$dbPass = "c06ke1";
-	$dbName = "picSite";
+$userID = $_SESSION['userID'];
 
 try
 {
 	// Create the PDO connection
-	$db = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
+	$db = loadDatabase();
 
 	// this line makes PDO give us an exception when there are problems, and can be very helpful in debugging!
 	$db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 
 	// First Add the Scripture
-	$query = 'INSERT INTO picture(title, image, userID) VALUES(:title, :image, 1)';
+	$query = 'INSERT INTO picture(title, image, userID) VALUES(:title, :image, :userID)';
 
 	$statement = $db->prepare($query);
 
 	$statement->bindParam(':title', $title);
 	$statement->bindParam(':image', $image);
+	$statement->bindParam(':userID', $userID);
 
 	$statement->execute();
 
@@ -60,5 +65,7 @@ die(); // we always include a die after redirects. In this case, there would be 
        // harm if the user got the rest of the page, because there is nothing else
        // but in general, there could be things after here that we don't want them
        // to see.
-
 ?>
+
+</body>
+</html>
