@@ -46,7 +46,7 @@ if (!isset($_SESSION["username"]))
     // Display all of the pictures in turn.
     $test = getPicSite(1);
     echo "<h1>Recent Pictures</h1>";
-    foreach (array_reverse($test as $key => $value)) {
+    foreach (array_reverse($test) as $key => $value) {
         echo " " .
         $value['title'] .
         "<a href=\"dynamic_page.php?id=" .
