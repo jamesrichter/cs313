@@ -1,14 +1,4 @@
 <?php
-/**********************************************************
-* File: showLoginBar.php
-* Author: James Richter
-* 
-* Description: Checks to see if our username/password
-* 	combination is in the database.  If it is, redirects to
-*	showPictures.php with the correct user logged in.
-*	If not, POSTS to itself (login.php) so they can
-*	try again.
-***********************************************************/
 session_start();
 require("password.php"); // used for password hashing.
 require("loadPicDatabase.php");
@@ -38,7 +28,6 @@ if (isset($_POST['txtUsername']) && isset($_POST['txtPassword']))
 
 		$result = $statement->execute();
 		
-		// This will be true if their username exists.
 		if ($result)
 		{
 			$row = $statement->fetch();
@@ -68,7 +57,9 @@ if (isset($_POST['txtUsername']) && isset($_POST['txtPassword']))
 	}
 	catch (Exception $ex)
 	{
-		echo "Error with DB.";
+		// Please be aware that you don't want to output the Exception message in
+		// a production environment
+		echo "Error with DB. Details: $ex";
 		die();
 	}
 

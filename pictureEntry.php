@@ -1,11 +1,12 @@
 <?php
 /**********************************************************
 * File: topicEntry.php
-* Author: Br. Burton
+* Author: James Richter, Br. Burton
 * 
-* Description: This is the PHP file that the user starts with.
-*   It has a form to enter a new scripture and topic.
-*   It posts to the insertTopic.php page.
+* Description: This is the PHP file that the user enters
+*	pictures with.  It has a form to enter a new picture url
+*	and title.
+*   It posts to the insertPicture.php page.
 ***********************************************************/
 ?>
 <!DOCTYPE html>

@@ -1,7 +1,14 @@
 <?php
-
+/**********************************************************
+* File: showLoginBar.php
+* Author: James Richter
+* 
+* Description: This is the PHP file that shows whether the
+*	user is logged in.  It is shown at the top of most pages.   
+***********************************************************/
 function showLoginBar(){
-	if ($_SESSION["username"] != "guest")
+	// if the user is not "guest"
+	if ($_SESSION["userID"] != "")
 	{
 		echo "
 		<div id='loginBar'>
@@ -15,11 +22,12 @@ function showLoginBar(){
 
 		";
 	}
+	// if the user is guest
 	else
 	{
 		echo "
 		<div id='loginBar'>
-			You are logged in as " . $_SESSION["username"] . ". 
+			You are logged in as a guest. 
 			<a href='login.php'>Login</a>  
 			<a href='signUp.php'>Sign Up</a>
 		</div>

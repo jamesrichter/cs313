@@ -1,17 +1,15 @@
 <?php
 /**********************************************************
 * File: signOut.php
-* Author: James Richter
+* Author: Br. Burton
 * 
 * Description: Clears the username from the session if there.
 *
 ***********************************************************/
+
+require("password.php"); // used for password hashing.
 session_start();
+unset($_SESSION['username']);
 
-// Set the username to guest.
-$_SESSION['username'] = "guest";
-$_SESSION['userID'] = '';
-
-header("Location: showPictures.php");
+header("Location: signIn.php");
 die(); // we always include a die after redirects.
-?>

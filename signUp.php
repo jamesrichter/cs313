@@ -1,7 +1,7 @@
 <?php
 /**********************************************************
-* File: singup.php
-* Author: Br. Burton
+* File: signUp.php
+* Author: James Richter, Br. Burton
 * 
 * Description: Allows a user to enter a new username
 *   and password to add to the DB.

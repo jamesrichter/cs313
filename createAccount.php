@@ -1,7 +1,7 @@
 <?php
 /**********************************************************
 * File: createAccount.php
-* Author: Br. Burton
+* Author: James Richter, Br. Burton
 * 
 * Description: Allows a user to enter a new username
 *   and password to add to the DB.
@@ -57,9 +57,7 @@ try
 }
 catch (Exception $ex)
 {
-	// Please be aware that you don't want to output the Exception message in
-	// a production environment
-	echo "Error with DB. Details: $ex";
+	echo "Error with DB.";
 	die();
 }
 

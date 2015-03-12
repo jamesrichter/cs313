@@ -1,9 +1,22 @@
 <?php
+/**********************************************************
+* File: loadPicDatabase.php
+* Author: James Richter
+* 
+* Description: Loads the database.  The user should not know
+*	about this file.
+*
+*	Very useful as the production environment can change
+*	and this is the only file needed to be edited.
+***********************************************************/
 
+// Load the database.
+// Here, we are loading the OpenShift Database.
 function loadDatabase()
 {
 	$dbHost = "http://php-jamesrichter.rhcloud.com";
 	$dbPort = "3306";
+	// These should probably be in a different file.
 	$dbName = "picSite";
 	$dbUser = "adminYwPVfAG";
 	$dbPassword = "pCTEtPQQJZI8";

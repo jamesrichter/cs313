@@ -1,4 +1,12 @@
 <?php
+/**********************************************************
+* File: insertComment.php
+* Author: James Richter, Bro. Burton
+* 
+* Description: Allows a user to enter a comment to add to
+*	the DB.
+*
+***********************************************************/
 include 'loadPicDatabase.php';
 session_start();
 ?>
@@ -25,7 +33,7 @@ try
 	// this line makes PDO give us an exception when there are problems, and can be very helpful in debugging!
 	$db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 
-	// First Add the Scripture
+	// First Add the Comment
 	$query = 'INSERT INTO comment(text, userID, pictureID) VALUES(:text, :userID, :picID)';
 
 	$statement = $db->prepare($query);
@@ -41,13 +49,11 @@ try
 }
 catch (Exception $ex)
 {
-	// Please be aware that you don't want to output the Exception message in
-	// a production environment
-	echo "Error with DB. Details: $ex";
+	echo "Error with DB.";
 	die();
 }
 
-// finally, redirect them to a new page to actually show the topics
+// finally, redirect them to a page that shows the same picture.
 header($link);
 die(); // we always include a die after redirects. In this case, there would be no
        // harm if the user got the rest of the page, because there is nothing else

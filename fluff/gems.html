@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head><title>gems: super duper important!</title>
+<script>
+function appendText()
+{
+   var text = document.getElementById("txtInput").value;
+
+   document.getElementById("txtInput").innerHTML += text;
+
+   document.getElementById("txtInput").style.color = "blue";
+
+   if (document.getElementById("txtInput").style.display != "none")
+   {
+      document.getElementById("txtInput").style.display = "none";
+   }  
+   else if (document.getElementById("txtInput").style.display == "none")
+   {
+      document.getElementById("txtInput").style.display = "block";
+   }
+}
+</script>
+
+<script src="http://code.jquery.com/jq..."></script>
+</head>
+
+<body>
+<div id="txtInput">
+This is the first div 
+</div>
+<div>
+<button id="Push" onclick="appendText();">
+button
+</button>
+</div>
+
+<div>
+</div>
+</body>
+</html>

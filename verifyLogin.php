@@ -1,5 +1,13 @@
 <?php
-
+/**********************************************************
+* File: verifyLogin.php
+* Author: James Richter
+* 
+* Description: Automatically redirects the logged in
+*	user to the showPictures.php home page.  Does a
+*	double check to make sure that the database loaded
+*	the right user.
+***********************************************************/
 if(isset($_POST['submit'])){ 
 	$_SESSION["user"] = $_POST['username'];
 	$_SESSION["password"] = $_POST['password'];
